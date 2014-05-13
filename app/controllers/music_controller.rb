@@ -1,7 +1,5 @@
 class MusicController < ApplicationController
 
-#MIGHT NEED COMMAS I DUNNO
-before_filter :login_required, :only => :new :create :update :edit :destroy
   def new
   end
 
@@ -18,6 +16,9 @@ before_filter :login_required, :only => :new :create :update :edit :destroy
   end
 
   def index
+ # respond_to do |format|
+	#rows.json {render json: @country}
+  #end
   end
 
   def show

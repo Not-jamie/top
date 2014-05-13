@@ -1,2 +1,41 @@
+<html>
 <h1>Music#index</h1>
 <p>Find me in app/views/music/index.html.erb</p>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
+
+    $(function() {
+
+   var people = [];
+
+   $.getJSON('../rows.json', function(data) 
+   {
+       $.each(data.data, function(i, f) 
+	   {
+		
+          var tblRow = "<tr>" + "<td>" + f[9] + "</td>" +
+           "<td>" + f[10] + "</td>" + "<td>" + f[11] + "</td>" + "<td>" + f[8] + "</td>" + "</tr>"
+           $(tblRow).appendTo("#musicdata tbody");
+     });
+
+   });
+
+});
+
+</script>
+</head>
+	<body>
+	   <center><table id= "musicdata" border="5">
+  <thead>
+            <th>Title</th>
+			<th>Artist</th>
+			<th>Year</th>
+			<th>Theme</th>
+        </thead>
+      <tbody>
+		
+       </tbody>
+   </table></center>
+	</body>
+	</html>

@@ -1,12 +1,12 @@
 Top::Application.routes.draw do
-  get "users/new"
-  get "music/new"
-  get "music/create"
-  get "music/update"
-  get "music/edit"
-  get "music/destroy"
-  get "music/index"
-  get "music/show"
+  get "users/new" => 'users#new'
+  get "music/new" => 'music#new'
+  get "music/create" => 'music#create'
+  get "music/update" => 'music#update'
+  get "music/edit" => 'music#edit'
+  get "music/destroy" => 'music#destroy'
+  get "music/index" => 'music#index'
+  get "music/show" => 'music#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :users
