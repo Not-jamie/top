@@ -1,7 +1,39 @@
 <html>
 
 <head>
+<script type="text/javascript" src="/path/to/jquery-latest.js"></script> 
+<script type="text/javascript" src="/path/to/jquery.tablesorter.js"></script> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
 
+    $(function() {
+	
+	
+   var people = [];
+
+   $.getJSON('../rows.json', function(data) 
+   {
+       $.each(data.data, function(i, f) 
+	   {
+	   var title = f[9]
+	   var artist = f[10]
+	   var year = f[11]
+	   var theme = f[8]
+	   var spotify = f[12];
+		var spotify_link = spotify;
+          var tblRow = "<tr>" + "<td>" + title + "</td>" +
+           "<td>" + artist + "</td>" + "<td>" + year + "</td>" +
+		   "<td>" + theme + "</td>" +
+		   "<td>" + spotify_link + "</td>" + "</tr>"
+           $(tblRow).appendTo("#musicdata");
+     });
+
+   });
+
+});
+
+</script>
+<p><%=link_to 'Return Home', ../music/index%></p>
   <title>Search results</title>
 </head>
 
@@ -18,14 +50,7 @@
    </thead>
 
     <tbody>
-     <% @music.each do |music| %>
-        <tr>
-          <td><%= music.title %></td>
-          <td><%= music.artist %></td>
-          <td><%= medal.year %></td>
-          <td><%= medal.theme %></td>
-        </tr>
-      <% end %>
+
     </tbody>
   </table>
   <p><%=link_to 'Return Home', root_path%></p>
