@@ -1,6 +1,6 @@
 <html>
-<h1>Music#index</h1>
-<p>Find me in app/views/music/index.html.erb</p>
+
+
 <head>
 <script type="text/javascript" src="/path/to/jquery-latest.js"></script> 
 <script type="text/javascript" src="/path/to/jquery.tablesorter.js"></script> 
@@ -9,7 +9,8 @@
 <script>
 
     $(function() {
-
+	
+	
    var people = [];
 
    $.getJSON('../rows.json', function(data) 
@@ -18,8 +19,9 @@
 	   {
 		
           var tblRow = "<tr>" + "<td>" + f[9] + "</td>" +
-           "<td>" + f[10] + "</td>" + "<td>" + f[11] + "</td>" + "<td>" + f[8] + "</td>" + "</tr>"
-           $(tblRow).appendTo("#musicdata tbody");
+           "<td>" + f[10] + "</td>" + "<td>" + f[11] + "</td>" +
+		   "<td>" + f[8] + "</td>" + "</tr>"
+           $(tblRow).appendTo("#musicdata");
      });
 
    });
@@ -27,6 +29,24 @@
 });
 
 </script>
+
+<script>
+	
+	$function()  {
+	
+	var spotify =[];
+	
+	$.getJSON('../rows.json', function(data)
+		{
+			$.each(data.data, function(i, f)
+			{
+			var leenk = JSON.stringify(f[12],[string])
+			$(leenk).appendTo("#musicdata");
+			});
+			});
+			};
+</script>
+
 <script>
 $(document).ready(function() 
     { 
@@ -36,16 +56,25 @@ $(document).ready(function()
 </script>
 </head>
 	<body>
-	   <center><table id= "musicdata" class="tablesorter" border="5">
+	<h1 style center>Welcome to the Top 100 Songs!</h1>
+	<div class='search'>
+  <h3>Search for a song</h3>
+  <form action ="search" method="post">
+  <input name = "key" type="input" />
+  <input value="Send" type="submit"/>
+  </form>
+  </div>
+	   <center><table class="tablesorter" border="5">
   <thead>
   <tr>
-            <th>Title</th>
+            <th style width=100px>Title</th>
 			<th>Artist</th>
 			<th>Year</th>
 			<th>Theme</th>
+			<th>Spotify Link</th>
 			</tr>
         </thead>
-      <tbody>
+      <tbody id="musicdata">
 		
        </tbody>
    </table></center>

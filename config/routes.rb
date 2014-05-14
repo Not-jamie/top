@@ -7,14 +7,16 @@ Top::Application.routes.draw do
   get "music/destroy" => 'music#destroy'
   get "music/index" => 'music#index'
   get "music/show" => 'music#show'
+   resources :music do
+  post 'search', :on => :collection
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :users
   get "log_in" => "users#login", :as => "log_in"  
   get "my_account" => "users#my_account", :as => "my_account"
   get "log_out" => "users#logout", :as => "log_out"
-  get "sign_up" => "users#new", :as => "sign_up"  
-  root :to => "users#new"  
+  get "sign_up" => "users#new", :as => "sign_up"    
   resources :users do    
     post 'process_login', :on => :collection 
 	end

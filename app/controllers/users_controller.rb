@@ -6,9 +6,9 @@
 
     # POST users
     def create  
-      @user = User.new(params[:user])  
+      @user = User.new(user_params)  
       if @user.save  
-        redirect_to :sign_up, :notice => "Signed up!"  
+        redirect_to :log_in, :notice => "Signed up!"  
       else  
         render "new"  
       end  
