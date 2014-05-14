@@ -1,2 +1,62 @@
-<h1>Music#show</h1>
-<p>Find me in app/views/music/show.html.erb</p>
+<html>
+
+<head>
+<script type="text/javascript" src="/path/to/jquery-latest.js"></script> 
+<script type="text/javascript" src="/path/to/jquery.tablesorter.js"></script> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
+
+    $(function() {
+	
+	
+   var people = [];
+
+   $.getJSON('../rows.json', function(data) 
+   {
+       $.each(data.data, function(i, f) 
+	   {
+	   var title = f[9]
+	   var artist = f[10]
+	   var year = f[11]
+	   var theme = f[8]
+	   var spotify = f[12];
+		var spotify_link = spotify;
+          var $tblRow = "<tr>" + "<td>" + title + "</td>" +
+           "<td>" + artist + "</td>" + "<td>" + year + "</td>" +
+		   "<td>" + theme + "</td>" +
+		   "<td>" + spotify_link + "</td>" + "</tr>"
+           $($tblRow).appendTo("#musicdata");
+     });
+
+   });
+
+});
+
+</script>
+  <title>Search results</title>
+</head>
+
+<h3>Search for a song</h3>
+  <form action ="search" method="post">
+  <input name = "key" type="input" />
+  <input value="Send" type="submit"/>
+  </form>
+  </div>
+  <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Flocalhost:3000/music/index%2Fdocs%2Fplugins%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>
+	   <center><table class="tablesorter" border="5">
+  <thead>
+  <tr>
+            <th style width=100px>Title</th>
+			<th>Artist</th>
+			<th>Year</th>
+			<th>Theme</th>
+			<th>Spotify Link</th>
+			</tr>
+        </thead>
+      <tbody id="musicdata">
+		
+       </tbody>
+   </table></center>
+	</body>
+
+</html>
