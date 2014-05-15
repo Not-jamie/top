@@ -30,7 +30,7 @@
     
    else  
    
-      #flash.now.alert = "Invalid email or password"  
+      flash.now.alert = "Invalid email or password"  
    
       render "login"  
    
