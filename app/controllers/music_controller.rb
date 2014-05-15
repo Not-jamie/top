@@ -2,8 +2,8 @@ class MusicController < ApplicationController
 require 'json'
 require 'find'
   def new
+    @music = Music.new
   end
-
   def create
   end
 
@@ -17,16 +17,19 @@ require 'find'
   end
 
   def index
+  @musics = Music.all
  # respond_to do |format|
 	#rows.json {render json: @country}
   #end
   end
   
-  def search
-  #@find = Find.search
-  #search = $tblRow.find(:all, :conditions => ["LIKE ?", "%#{params[:key]}%"])
+   def search
+    
   end 
   
   def show
+  @search=params[:key]
+  @filter=params[:theme2]
+
   end
 end

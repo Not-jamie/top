@@ -1,4 +1,7 @@
 Top::Application.routes.draw do
+root :to => 'musics#index'
+  resources :musics
+
   get "users/new" => 'users#new'
   get "music/new" => 'music#new'
   get "music/create" => 'music#create'
@@ -6,10 +9,12 @@ Top::Application.routes.draw do
   get "music/edit" => 'music#edit'
   get "music/destroy" => 'music#destroy'
   get "music/index" => 'music#index'
-  get "music/show" => 'music#show'
-   resources :music do
-  post 'search', :on => :collection
-  end
+  get "music/search" => 'music#show'
+   get "music/show" => 'music#show'
+   get "music/filter" => 'music#show'
+  post "music/search" => 'music#show'
+  post "music/filter" => 'music#show'
+  post "music/show" => 'music#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :users

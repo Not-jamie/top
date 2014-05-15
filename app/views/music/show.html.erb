@@ -1,14 +1,11 @@
 <html>
 
 <head>
-<script type="text/javascript" src="/path/to/jquery-latest.js"></script> 
-<script type="text/javascript" src="/path/to/jquery.tablesorter.js"></script> 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 <script>
 
     $(function() {
-	
-	
+
    var people = [];
 
    $.getJSON('../rows.json', function(data) 
@@ -20,12 +17,19 @@
 	   var year = f[11]
 	   var theme = f[8]
 	   var spotify = f[12];
-		var spotify_link = spotify;
+		var spotify_link =spotify
           var $tblRow = "<tr>" + "<td>" + title + "</td>" +
            "<td>" + artist + "</td>" + "<td>" + year + "</td>" +
 		   "<td>" + theme + "</td>" +
-		   "<td>" + spotify_link + "</td>" + "</tr>"
-           $($tblRow).appendTo("#musicdata");
+		   "<td>" + spotify_link + "</td>" + "</tr>";
+		   
+          if ((title.toLowerCase().indexOf("<%=@search%>")> -1 ||
+		  artist.toLowerCase().indexOf("<%=@search%>")> -1 ||
+		  year.indexOf("<%=@search%>")> -1) 
+		 && theme=="<%=@filter%>"
+		  
+		  ){
+		  $($tblRow).appendTo("#musicdata");}
      });
 
    });
@@ -36,10 +40,19 @@
   <title>Search results</title>
 </head>
 
+
+<h1>Search in '<%=@filter%>'</h1>
 <h3>Search for a song</h3>
   <form action ="search" method="post">
+<input type="radio" name="theme2" value="Love">Love<br>
+<input type="radio" name="theme2" value="Heartbreak">Heartbreak <br>
+<input type="radio" name="theme2" value="People and places">People and Places <br>
+<input type="radio" name="theme2" value="Sex">Sex <br>
+<input type="radio" name="theme2" value="Politics and protest">Politics and Protest <br>
+<input type="radio" name="theme2" value="Life and death">Life and Death <br>
+<input type="radio" name="theme2" value="Party songs">Party Songs <br>
   <input name = "key" type="input" />
-  <input value="Send" type="submit"/>
+  <input value="Search" type="submit"/>
   </form>
   </div>
   <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Flocalhost:3000/music/index%2Fdocs%2Fplugins%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>
