@@ -1,5 +1,6 @@
 Top::Application.routes.draw do
-root :to => 'musics#index'
+  get "users/author" => 'users#author'
+root :to => 'music#index'
   resources :musics
 
   get "users/new" => 'users#new'

@@ -1,9 +1,10 @@
   class UsersController < ApplicationController  
-  before_filter :login_required, :only=> :my_account
+  before_filter :login_required, :only=> ['my_account']
     def new  
       @user = User.new  
     end 
-
+  def author
+  end
     # POST users
     def create  
       @user = User.new(user_params)  
