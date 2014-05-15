@@ -41,8 +41,9 @@
 </head>
 
 
-<h1>Search in '<%=@filter%>'</h1>
+<h1>Search for '<%=@search%>")>' in '<%=@filter%>'</h1>
 <h3>Search for a song</h3>
+<p><%=button_to 'Click here', index_path, :class => "button", :method => :get%>to view the whole list</p>
   <form action ="search" method="post">
 <input type="radio" name="theme2" value="Love">Love<br>
 <input type="radio" name="theme2" value="Heartbreak">Heartbreak <br>
