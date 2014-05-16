@@ -15,13 +15,11 @@
 	   var title = f[9]
 	   var artist = f[10]
 	   var year = f[11]
-	   var theme = f[8]
-	   var spotify = f[12];
-		var spotify_link =spotify
+	   var theme = f[8];
+
           var $tblRow = "<tr>" + "<td>" + title + "</td>" +
            "<td>" + artist + "</td>" + "<td>" + year + "</td>" +
-		   "<td>" + theme + "</td>" +
-		   "<td>" + spotify_link + "</td>" + "</tr>";
+		   "<td>" + theme + "</td>" + "</tr>";
 		   
           if ((title.toLowerCase().indexOf("<%=@search%>")> -1 ||
 		  artist.toLowerCase().indexOf("<%=@search%>")> -1 ||
@@ -64,7 +62,6 @@
 			<th>Artist</th>
 			<th>Year</th>
 			<th>Theme</th>
-			<th>Spotify Link</th>
 			</tr>
         </thead>
       <tbody id="musicdata">
