@@ -1,6 +1,11 @@
 Top::Application.routes.draw do
+  filter :locale
 scope "(:locale)", :locale => /en|fr/ do
   get "users/author" => 'users#author'
+   scope "/:locale", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :posts
+  end
+
 root :to => 'music#index'
   resources :musics
 
@@ -15,6 +20,7 @@ root :to => 'music#index'
    get "music/show" => 'music#show'
    get "music/filter" => 'music#show'
   post "music/search" => 'music#show'
+  post "en/music/search" => 'music#show'
   post "music/filter" => 'music#show'
   post "music/show" => 'music#show'
     get "/index" => 'music#index'
