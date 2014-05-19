@@ -1,8 +1,8 @@
 <!-- app/views/users/my_account.html.erb -->
 <p><%=link_to 'Return Home', root_path%></p>
-<h1>Account Info</h1>
+<h1><%=t :account_info %></h1>
 
-<p>Your username is <%= @sessName %>
+<p><%=t :username_is %> <%= @sessName %>
 
 <br>
-<a href="log_out">Log out</a>
+<a href="log_out"><%=t :logout1 %></a>

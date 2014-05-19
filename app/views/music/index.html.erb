@@ -34,25 +34,22 @@
 
 </script>
 
-
+<title><%=t :mainpage_title %></title>
 </head>
 	<body>
-	<h1 style center>Welcome to the Guardian's Top 1000 Songs to Hear Before You Die!</h1>
-	<div class='sort>
-	
-	</div>
+	<h1 style center><%=t :main_title %></h1>
 	<div class='search'>
-  <h3>Search for a song</h3>
+  <h3><%=t :search_for %></h3>
    <form action ="search" method="post">
-<input type="radio" name="theme2" value="Love">Love<br>
-<input type="radio" name="theme2" value="Heartbreak">Heartbreak <br>
-<input type="radio" name="theme2" value="People and places">People and Places <br>
-<input type="radio" name="theme2" value="Sex">Sex <br>
-<input type="radio" name="theme2" value="Politics and protest">Politics and Protest <br>
-<input type="radio" name="theme2" value="Life and death">Life and Death <br>
-<input type="radio" name="theme2" value="Party songs">Party Songs <br>
+<input type="radio" name="theme2" value="Love"><%=t :love %><br>
+<input type="radio" name="theme2" value="Heartbreak"><%=t :heartbreak %><br>
+<input type="radio" name="theme2" value="People and places"><%=t :people %><br>
+<input type="radio" name="theme2" value="Sex"><%=t :sex %><br>
+<input type="radio" name="theme2" value="Politics and protest"><%=t :protest %><br>
+<input type="radio" name="theme2" value="Life and death"><%=t :life %><br>
+<input type="radio" name="theme2" value="Party songs"><%=t :party %><br>
   <input name = "key" type="input" />
-  <input value="Search" type="submit"/>
+  <input value="<%=t :searchbutton %>" type="submit"/>
   </form>
   </div>
   <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Flocalhost:3000/music/index%2Fdocs%2Fplugins%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>
@@ -60,10 +57,10 @@
 	   <table class="tablesorter" border="5">
   <thead>
   <tr>
-            <th style width=100px>Title</th>
-			<th>Artist</th>
-			<th>Year</th>
-			<th>Theme</th>
+            <th style width=100px><%=t :title_1 %></th>
+			<th><%=t :artist_1 %></th>
+			<th><%=t :year_1 %></th>
+			<th><%=t :theme_1 %></th>
 			</tr>
         </thead>
       <tbody id="musicdata">

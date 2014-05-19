@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<a href="/log_in" rel="login">Log in</a>
-<a href="/sign_up" rel="signup">Sign up</a>
-<a href="../music/index" rel="index">Home</a>
-<a href="../users/author" rel="index">A little about the author</a>
+<a href="/my_account" rel="my_account"><%=t :myaccount %></a>
+<a href="/log_in" rel="login"><%=t :login %></a>
+<a href="/sign_up" rel="signup"><%=t :signup %></a>
+<a href="../music/index" rel="index"><%=t :home %></a>
+<a href="../users/author" rel="index"><%=t :author_link %></a>
   <title>Top</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
