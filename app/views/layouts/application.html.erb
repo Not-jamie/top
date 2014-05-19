@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<p>
-<%= link_to_unless I18n.locale == :en, "English", locale: :en %>
-|
-<%= link_to_unless I18n.locale == :fr, "Français", locale: :fr %>
-</p>
 <a href="/my_account" rel="my_account"><%=t :myaccount %></a>
 <a href="/log_in" rel="login"><%=t :login %></a>
 <a href="/sign_up" rel="signup"><%=t :signup %></a>

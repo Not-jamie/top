@@ -3,15 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   #protect_from_forgery with: :exception
 before_action :set_locale
- private
+ 
 def set_locale
-  I18n.locale = params[:locale] || I18n.default_locale
-  Rails.application.routes.default_url_options[:locale]= I18n.locale
+  I18n.locale = extract_locale_from_tld || I18n.default_locale
 end
-
-def default_url_options(options={})
-  logger.debug "default_url_options is passed options: #{options.inspect}\n"
-  { locale: I18n.locale }
+ 
+# Get locale from top-level domain or return nil if such locale is not available
+# You have to put something like:
+#   127.0.0.1 application.com
+#   127.0.0.1 application.it
+#   127.0.0.1 application.pl
+# in your /etc/hosts file to try this out locally
+def extract_locale_from_tld
+  parsed_locale = request.host.split('.').last
+  I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale : nil
 end
 
    protected

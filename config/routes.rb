@@ -1,5 +1,4 @@
 Top::Application.routes.draw do
-scope "(:locale)", :locale => /en|fr/ do
   get "users/author" => 'users#author'
 root :to => 'music#index'
   resources :musics
@@ -21,10 +20,10 @@ root :to => 'music#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :users
-  get "log_in" => "users#login" 
-  get "my_account" => "users#my_account"
-  get "log_out" => "users#logout"
-  get "sign_up" => "users#new"    
+  get "log_in" => "users#login", :as => "log_in"  
+  get "my_account" => "users#my_account", :as => "my_account"
+  get "log_out" => "users#logout", :as => "log_out"
+  get "sign_up" => "users#new", :as => "sign_up"    
   resources :users do    
     post 'process_login', :on => :collection 
 	end
@@ -79,5 +78,4 @@ root :to => 'music#index'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
 end
