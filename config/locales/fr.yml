@@ -1,0 +1,53 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+fr:
+  mainpage_title: "1000 Chansons"
+  search_results: "Résultats de la recherche"
+  main_title: "Bienvenue sur le Guardian's Top 1000 des chansons à écouter avant de mourir!"
+  search_for: "Rechercher une chanson par mot-clé ou par thème"
+  love: "Amour"
+  heartbreak: "Crève-cœur"
+  people: "Personnes et Lieux"
+  sex: "Sexe"
+  protest: "Politique et Protestation"
+  life: "La Vie et la Morte"
+  party: "Chansons de Fête"
+  title_1: "itre"
+  artist_1: "Artiste"
+  theme_1: "Thème"
+  year_1: "Année"
+  searchbutton: "Recherche
+  in: "dans"
+  searching: "Chercher "
+  signed_up: "Signé!"
+  about_author: "Un peu sur le créateur de cette page..."
+  author_from: "De Keighley, West Yorkshire"
+  login: "Log in"
+  email: "Email"
+  password: "Mot de pass"
+  username_is: "Votre nom d'utilisateur est "
+  account_info: "Votre compte Informations"
+  logout1: "Déconnecter"
+  invalid: "La forme n'est pas valide"
+  signup: "Signer!"
+  home: "Page d'accueil"
+  myaccount: "Mon compte"
+  author_link: "Un peu sur l'auteur"
