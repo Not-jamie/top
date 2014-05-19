@@ -1,6 +1,10 @@
 Top::Application.routes.draw do
+  scope "(:locale)", :locale => /en|fr/ do
+  root :to => 'music#index'
+    get "page/index"
+	end
   get "users/author" => 'users#author'
-root :to => 'music#index'
+
   resources :musics
 
   get "users/new" => 'users#new'
